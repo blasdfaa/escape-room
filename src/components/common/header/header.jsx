@@ -1,4 +1,5 @@
 import logo from 'assets/img/logo.svg';
+import { AppRoute } from 'constans';
 import { useLocation } from 'react-router-dom';
 import * as S from './header.styled';
 
@@ -16,7 +17,7 @@ const Header = () => {
   return (
     <S.StyledHeader>
       <S.HeaderWrapper>
-        <S.LogoLink>
+        <S.LogoLink to={AppRoute.HOME}>
           <S.Image
             src={logo}
             alt="Логотип Escape Room"

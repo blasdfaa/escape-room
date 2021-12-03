@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { PageHeading as Heading } from 'components/common/common';
 import contactsBg from 'assets/img/contacts-bg.jpg';
+import CustomMap from './components/custom-map/custom-map';
 
 const Main = styled.main`
   display: flex;
@@ -80,6 +81,11 @@ const ContactsMap = styled.div`
   margin-left: auto;
 `;
 
+const MapInstance = styled(CustomMap)`
+  width: 100%;
+  height: 100%;
+`;
+
 const ContactsMapImage = styled.img`
   position: absolute;
   top: 0;
@@ -99,4 +105,5 @@ export {
   ContactLink,
   ContactsMap,
   ContactsMapImage,
+  MapInstance,
 };

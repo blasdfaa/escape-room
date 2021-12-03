@@ -47,6 +47,7 @@ const Contacts = () => (
               width="649"
               height="336"
             />
+            <S.MapInstance />
           </S.ContactsMap>
         </S.Contacts>
       </S.ContentWrapper>
