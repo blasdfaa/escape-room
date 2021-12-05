@@ -3,7 +3,6 @@ import React from 'react';
 import * as S from './booking-modal.styled';
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
 import useForm from 'hooks/use-form';
-import { API_ENDPOINT } from 'constans';
 
 const FetchConfig = {
   METHOD: 'POST',
@@ -57,7 +56,7 @@ const BookingModal = ({ onCloseBtnClick }) => {
     };
 
     try {
-      const response = await fetch(`${API_ENDPOINT}/orders`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orders`, {
         method: FetchConfig.METHOD,
         headers: {
           'Content-Type': FetchConfig.CONTENT_TYPE,
