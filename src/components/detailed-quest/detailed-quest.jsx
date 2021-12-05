@@ -13,7 +13,7 @@ import {
   getQuestType,
 } from 'utils/quest';
 import Error from 'components/error/error';
-import { API_ENDPOINT, HttpCode } from 'constans';
+import { HttpCode } from 'constans';
 
 const NOT_FOUND_QUEST_MESSAGE = 'Квест не найден';
 
@@ -28,7 +28,9 @@ const DetailedQuest = () => {
     (async () => {
       setQuestInfoLoaded(false);
       try {
-        const response = await fetch(`${API_ENDPOINT}/quests/${questId}`);
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/quests/${questId}`,
+        );
 
         if (response.status === HttpCode.NOT_FOUND) {
           setQuestInfo(null);

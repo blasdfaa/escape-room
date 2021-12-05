@@ -8,14 +8,13 @@ import {
 } from 'components/common/common';
 import { QuestsCatalog } from './components/components';
 import * as S from './home.styled';
-import { API_ENDPOINT } from 'constans';
 
 const HomePage = () => {
   const [questItems, setQuestItems] = React.useState([]);
 
   React.useEffect(() => {
     (async () => {
-      const response = await fetch(`${API_ENDPOINT}/quests`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/quests`);
       const data = await response.json();
 
       setQuestItems(data);
