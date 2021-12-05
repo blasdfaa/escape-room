@@ -16,6 +16,6 @@ initCustomRoutes(server);
 
 server.use(router);
 
-server.listen(PORT, () => {
+server.listen(process.env.PORT || PORT, () => {
   console.log('JSON Server is running');
 });
