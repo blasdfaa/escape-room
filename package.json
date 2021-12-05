@@ -7,13 +7,12 @@
     "react-scripts": "4.0.3",
     "react-yandex-maps": "^4.6.0",
     "styled-components": "5.3.3",
-    "json-server": "0.17.0"
-  },
-  "devDependencies": {
+    "json-server": "0.17.0",
     "concurrently": "6.3.0",
     "joi": "17.4.2",
     "sass": "1.43.4"
   },
+  "devDependencies": {},
   "scripts": {
     "start:client": "react-scripts start",
     "start:server": "node server/server",
