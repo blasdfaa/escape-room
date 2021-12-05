@@ -1,15 +1,29 @@
-const express = require('express');
-const path = require('path');
+const jsonServer = require('json-server');
+const { initDatabase } = require('./database/database');
+const { initCustomRoutes } = require('./routes/routes');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
-const app = express();
-
-app.use(express.static(__dirname));
-app.use(express.static(path.resolve(__dirname, 'build')));
-
-app.get('*', (req, res) => {
-  res.readFile(path.join(__dirname, 'build', 'index.html'), 'utf8');
+const server = jsonServer.create();
+const router = jsonServer.router(initDatabase());
+const middlewares = jsonServer.defaults({
+  static: './build',
 });
 
-app.listen(PORT);
+server.use(middlewares);
+
+server.use(
+  jsonServer.rewriter({
+    '/api/*': '/$1',
+  }),
+);
+
+server.use(jsonServer.bodyParser);
+
+initCustomRoutes(server);
+
+server.use(router);
+
+server.listen(PORT, () => {
+  console.log('JSON Server is running');
+});
