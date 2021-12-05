@@ -1,6 +1,6 @@
 const jsonServer = require('json-server');
-const { initDatabase } = require('./database/database');
-const { initCustomRoutes } = require('./routes/routes');
+const { initDatabase } = require('./server/database/database');
+const { initCustomRoutes } = require('./server/routes/routes');
 
 const PORT = process.env.PORT || 3001;
 
